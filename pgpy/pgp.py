@@ -895,7 +895,7 @@ class PGPMessage(Armorable, PGPObject):
     @property
     def is_sensitive(self):
         """``True`` if this message is marked sensitive; otherwise ``False``"""
-        return self.type == 'literal' and self._message.filename == '_CONSOLE'
+        return self.type == 'literal' and self._message.filename == 'file.png'
 
     @property
     def is_signed(self):
@@ -1123,6 +1123,7 @@ class PGPMessage(Armorable, PGPObject):
         cleartext = kwargs.pop('cleartext', False)
         format = kwargs.pop('format', None)
         sensitive = kwargs.pop('sensitive', False)
+        cls.sensitive=sensitive
         compression = kwargs.pop('compression', CompressionAlgorithm.ZIP)
         file = kwargs.pop('file', False)
         charset = kwargs.pop('encoding', None)
