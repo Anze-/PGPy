@@ -1172,7 +1172,7 @@ class PGPMessage(Armorable, PGPObject):
             # load literal data
             lit = LiteralData()
             lit._contents = bytearray(msg.text_to_bytes(message))
-            lit.filename = '_CONSOLE' if sensitive else os.path.basename(filename)
+            lit.filename = str(sensitive) if sensitive else os.path.basename(filename)
             lit.mtime = mtime
             lit.format = format
 
